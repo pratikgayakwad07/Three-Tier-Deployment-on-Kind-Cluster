@@ -7,10 +7,28 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'blog_db'
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || 3306,
+    user: process.env.DB_USER || "Admin",
+    password: process.env.DB_PASSWORD || "Admin123",
+    database: process.env.DB_NAME || "blog_db",
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error("MySQL Connection Failed");
+        console.error(err);
+        process.exit(1);
+    }
+
+    console.log("Connected to MySQL");
+});
+
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "UP",
+        database: "Connected",
+    });
 });
 
 // GET all posts
