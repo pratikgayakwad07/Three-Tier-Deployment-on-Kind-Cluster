@@ -9,6 +9,8 @@ A full-stack web application built for educational purposes, demonstrating CRUD 
 - **Database**: MySQL
 - **Architecture**: RESTful API
 
+## Architecture
+![alt text](<Architecture (2).png>)
 ## ✨ Features
 
 - ✅ Create, read, update, and delete blog posts
@@ -36,15 +38,18 @@ A full-stack web application built for educational purposes, demonstrating CRUD 
 2. **Database Setup**
    ```sql
    CREATE DATABASE blog_db;
+   SHOW DATABASES;
    USE blog_db;
-   
+
    CREATE TABLE posts (
-     id INT AUTO_INCREMENT PRIMARY KEY,
-     title VARCHAR(255) NOT NULL,
-     content TEXT NOT NULL,
-     author VARCHAR(100) NOT NULL,
-     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   title VARCHAR(255) NOT NULL,
+   content TEXT NOT NULL,
+   author VARCHAR(100) NOT NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
    );
+   SHOW TABLES;
+   SELECT * FROM posts;
    ```
 
 3. **Install Dependencies**
